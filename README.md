@@ -5,7 +5,7 @@
 
 ##用法
 1. 安装pyspider和PhantomJS
-2. `spider.py`就是脚本代码, 用, 可以了
+2. `spider.py`就是脚本代码, 给`on_start`的`start_url`(电子书的url), 还有`index_page`的`path`(你的图片放哪里)赋值, 运行, 可以了
 
 ##TODO
 开服务器提供通用服务, 你给个书名, 我给你个pdf那种

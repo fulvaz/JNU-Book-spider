@@ -14,17 +14,17 @@ import Image as im
 
 
 class Handler(BaseHandler):
-    crawl_config = {
-    }
 
     @every(minutes=24 * 60)
     def on_start(self):
-        self.crawl('http://202.116.13.24:8198/Jpath_sky/DsrPath.do?code=13E5EA428318B233BF881304B8A51854&ssnumber=13529187&netuser=1&jpgreadmulu=1&displaystyle=0&channel=0&ipside=0', fetch_type='js', headers={'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/48.0.2564.82 Chrome/48.0.2564.82 Safari/537.36'}, callback=self.index_page)
+        start_url = ''
+        header = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/48.0.2564.82 Chrome/48.0.2564.82 Safari/537.36'
+        self.crawl(start_url, fetch_type='js', headers={'User-Agent': header}, callback=self.index_page)
 
     @config(age=10 * 24 * 60 * 60)
     def index_page(self, response):
            urls = [];
-           path = '/home/fulvaz/pdf/images/'
+           path = ''
            title = response.doc('title').text()
            for each in response.doc('.Jimg').items():
                 urls.append(each.attr['scr'])
